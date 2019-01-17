@@ -1,0 +1,13 @@
+<h1>Agregar Comentarios</h1>
+<%= form_for :description_book, url: add_comment_path do |f| %>
+  <div>
+    <%= f.label :comments %>
+    <%= f.text_field :comments, class: "form-control" %>
+  </div>
+  <%= f.hidden_field :book_id, value: @book.id %>
+  <%= hidden_field_tag :id, @book.id %>
+  <br>
+  <div>
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+<% end %>

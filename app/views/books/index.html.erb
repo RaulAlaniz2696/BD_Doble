@@ -1,0 +1,36 @@
+<h1>Libros</h1>
+<%= link_to "Nuevo Libro", new_book_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Comentarios</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @book.each do |book| %>
+      <%# book.description_books.each do |comentario| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td>
+            <% book.description_books.each do |comentario| %>
+              <%= comentario.comments + " | " %>
+            <% end %>
+          </td>
+          <td>
+            <% if signed_in? %>
+            <%= link_to "Editar", edit_book_path(book) %>
+            <%= link_to "Comentrar", comments_path(book) %>
+            <% else %>
+            <%= link_to "Mostrar", book, class: "btn btn-primary" %>
+            <% end %>
+            <%#= link_to "Eliminar", book, method: :delete, data: { confirm: "¿Estás seguro de eliminar este libro?" } %>
+          </td>
+        </tr>
+      <%# end %>
+    <% end %>
+  </tbody>
+</table>

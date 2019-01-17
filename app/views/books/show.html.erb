@@ -1,0 +1,13 @@
+<h1>Detalles del Libro</h1>
+<div>
+  Nombre: <%= @book.title %>
+</div>
+<div>
+  Autor: <%= @book.author %>
+</div>
+<div>
+  Comentario:
+  <% @book.description_books.each do |comentario| %>
+    <%= comentario.comments + ","%>
+  <% end %>
+</div>

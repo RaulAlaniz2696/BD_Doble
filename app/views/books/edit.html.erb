@@ -1,0 +1,15 @@
+<h1>Editar Libro</h1>
+<%= form_for @book do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label :author %>
+    <%= f.text_field :author, class: "form-control" %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
